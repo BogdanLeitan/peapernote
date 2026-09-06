@@ -1,0 +1,116 @@
+/* --- Topbar --- */
+.topbar {
+  height: 45px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.open-sidebar {
+  display: none;
+}
+
+body:has(#sidebar-toggle:not(:checked)) .open-sidebar {
+  display: grid;
+}
+
+.breadcrumb {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 4px 8px;
+  color: var(--text);
+}
+
+.breadcrumb:hover {
+  background: var(--hover);
+}
+
+.breadcrumb.crumb-path:hover {
+  background: transparent;
+}
+
+body:has(#page-untitled:checked) .crumb-blank,
+body:has(#page-folder-personal:checked) .crumb-folder-personal,
+body:has(#page-folder-projects:checked) .crumb-folder-projects,
+body:has([id^="page-note-"]:checked) .crumb-note {
+  display: flex;
+}
+
+.crumb-part {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.crumb-part:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+.crumb-sep {
+  color: var(--text-3);
+}
+
+.breadcrumb .ui-icon,
+.crumb-part .ui-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.crumb-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-btn {
+  height: 28px;
+  padding: 0 8px;
+  display: grid;
+  place-items: center;
+  color: var(--text-2);
+}
+
+body:has(#favorite-toggle:checked) .favorite-btn svg path {
+  fill: #f2c94c;
+  stroke: #f2c94c;
+}
+
+.more-wrap {
+  position: relative;
+}
+
+.more-wrap .menu {
+  display: none;
+  position: absolute;
+  top: 32px;
+  right: 0;
+  min-width: 200px;
+  padding: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  z-index: 8;
+}
+
+.more-wrap:focus-within .menu,
+.more-wrap:hover .menu {
+  display: block;
+}
